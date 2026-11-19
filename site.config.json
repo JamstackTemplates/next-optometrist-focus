@@ -1,7 +1,8 @@
 {
-  "name": "Jamstacks starter",
-  "description": "A neutral Next.js foundation for Jamstacks websites.",
-  "domain": "",
+  "name": "Clear Horizon Optometry",
+  "description": "Eye tests, contact lens fittings, children's vision checks and a curated frames gallery at Clear Horizon Optometry, facing Rice Park in downtown Saint Paul.",
+  "domain": "next-optometrist-focus.jamstacks.net",
+  "timeZone": "America/Chicago",
   "jamstacks": {
     "siteId": "",
     "cdnUrl": "https://cdn.jamstacks.net"

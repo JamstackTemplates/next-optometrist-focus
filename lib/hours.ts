@@ -45,3 +45,28 @@ export function openingLabel(hours: readonly OpeningHours[], timeZone: string, n
   }
   return 'Closed · see opening hours';
 }
+
+/** Consecutive days sharing the same hours, for compact summaries such as the footer. */
+export interface HoursGroup {
+  /** Short label such as "Mon–Wed" or "Sat". */
+  label: string;
+  /** "08:30–18:00", or "Closed". */
+  value: string;
+}
+
+export function groupHours(hours: readonly OpeningHours[]): HoursGroup[] {
+  const ordered = DAYS.map(day => hours.find(entry => entry.day === day) ?? { day });
+  const valueOf = (entry: OpeningHours) => entry.opens && entry.closes ? `${entry.opens}–${entry.closes}` : 'Closed';
+  const short = (day: Day) => day.slice(0, 3);
+  const groups: { first: Day; last: Day; value: string }[] = [];
+  for (const entry of ordered) {
+    const value = valueOf(entry);
+    const previous = groups.at(-1);
+    if (previous && previous.value === value) previous.last = entry.day;
+    else groups.push({ first: entry.day, last: entry.day, value });
+  }
+  return groups.map(group => ({
+    label: group.first === group.last ? short(group.first) : `${short(group.first)}–${short(group.last)}`,
+    value: group.value,
+  }));
+}

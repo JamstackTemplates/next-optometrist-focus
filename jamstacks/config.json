@@ -1,0 +1,17 @@
+{
+  "name": "Clear Horizon Optometry",
+  "description": "A crisp exam-room theme for optometrists and opticians: trial-lens rings with a 0–180° axis scale, a lit acuity chart that sharpens through the lens, eye tests laid out in a trial-lens case with durations and prices, a frames wall filterable by shape, material and fit, a children's vision path of tumbling Es from six months to school age, an appointment-card hours panel with an open-now status and a Jamstacks contact component for eye test and frames enquiries.",
+  "tech": "next",
+  "type": "optometrist",
+  "style": "focus",
+  "internal": false,
+  "components": ["support-form"],
+  "configFile": "site.config.json",
+  "screenshots": {
+    "light": "jamstacks/home-light.jpg",
+    "dark": "jamstacks/home-dark.jpg",
+    "theme": {
+      "strategy": "media"
+    }
+  }
+}
